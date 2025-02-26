@@ -1,0 +1,65 @@
+@font-face {
+  font-family: "Silkflower";
+  src: url(../fonts/silkflower.otf) format("opentype");
+}
+
+body {
+  font-family: "Silkflower", sans-serif;
+  background-color: #dcd7c9;
+}
+
+/* Navigation Bar */
+.nav-bar {
+  width: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  font-size: 25px;
+  font-weight: 400;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  color: #2c3930;
+}
+
+.logo-img {
+  height: 40px;
+}
+
+.logo-text {
+  margin-left: 0.5rem;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2.3rem;
+}
+
+.nav-links a {
+  position: relative;
+  text-decoration: none;
+  color: #2c3930;
+  transition: color 0.3s;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -2px;
+  left: 0;
+  background-color: gray;
+  transition: width 0.3s ease-in;
+}
+
+.nav-links a:hover {
+  color: gray;
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}

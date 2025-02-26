@@ -1,0 +1,291 @@
+/* Introduction Container */
+.introduction-container {
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  position: relative; /* Added for flower positioning */
+  z-index: 0;
+  margin-bottom: 145px;
+  /* background-color: #dcd7c9; */
+}
+
+.box-1 {
+  width: 505px;
+  height: 313px;
+  background-color: #2c3930;
+}
+
+/* Flowers */
+.flower {
+  position: absolute;
+  height: auto;
+  z-index: 1; /* Ensure flowers are behind the content */
+}
+
+.flower-top {
+  top: -4.5%; /* Adjust position as needed */
+  right: 18.5%; /* Moved to the right */
+}
+
+.flower-bottom {
+  bottom: 2.8%; /* Adjust position as needed */
+  left: 16.65%; /* Moved to the left */
+}
+
+/* Floating Text */
+.floating-text {
+  font-size: 18px;
+  color: #2c3930;
+  letter-spacing: 2px;
+  animation: float 2s infinite, colorWave 7s infinite; /* Apply floating animation by default */
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-3px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes colorWave {
+  0%,
+  100% {
+    color: #2c3930;
+  }
+
+  50% {
+    color: #72412cfd;
+  }
+}
+
+/* Introduction Content */
+.introduction-content {
+  text-align: center;
+  z-index: 0; /* Ensure content is above the flowers */
+}
+
+.introduction-subtitle {
+  font-size: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #2c3930;
+}
+
+.introduction-title {
+  font-size: 128px;
+  margin: 0.5rem 0;
+  letter-spacing: 30px;
+  color: #2c3930;
+  z-index: 0;
+}
+
+.introduction-shadow {
+  font-size: 128px;
+  letter-spacing: 30px;
+  -webkit-text-stroke: 0.1px #2c3930;
+  color: transparent;
+  margin-top: 1px;
+  margin-bottom: 1px;
+}
+
+/* About Button */
+.about-button {
+  margin-top: 2rem;
+  padding: 0.75rem 1.5rem;
+  width: 200px;
+  height: 50px;
+  background-color: #2c3930;
+  color: white;
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
+  font-size: 22px;
+  font-family: silkflower;
+}
+
+.about-button:hover {
+  background-color: #333;
+  scale: 1.01;
+}
+
+/* background */
+@keyframes sway {
+  0% {
+    transform: rotate(220deg) translateX(0);
+  }
+  50% {
+    transform: rotate(225deg) translateX(10px);
+  }
+  100% {
+    transform: rotate(220deg) translateX(0);
+  }
+}
+
+/* background */
+.gflower {
+  position: absolute;
+  height: 300px;
+  width: 300px;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  rotate: 218deg;
+  animation: sway2 5s ease-in-out infinite;
+}
+
+.gflower2 {
+  position: absolute;
+  height: 300px;
+  width: 300px;
+  bottom: 350px;
+  right: 120px;
+  z-index: -1;
+  rotate: 16deg;
+  animation: sway2 5s ease-in-out infinite;
+}
+
+/* background */
+@keyframes sway2 {
+  0% {
+    transform: rotate(16deg) translateX(0);
+  }
+  50% {
+    transform: rotate(21deg) translateX(10px);
+  }
+  100% {
+    transform: rotate(16deg) translateX(0);
+  }
+}
+
+.gmoth {
+  position: absolute;
+  height: 200px;
+  width: 200px;
+  bottom: -40px;
+  right: 90px;
+  z-index: -1;
+  rotate: -50deg;
+  animation: wingFlap 4s infinite;
+  cursor: pointer; /* Add cursor pointer to indicate it's clickable */
+}
+
+@keyframes wingFlap {
+  0%,
+  100% {
+    transform: scale(1) rotate(0);
+  }
+  50% {
+    transform: scale(1.05) rotate(0); /* Slightly increase size and rotate */
+  }
+}
+
+/* Positive (+vw) moves right.
+Negative (-vw) moves left.
+
+Positive (+vh) moves down.
+Negative (-vh) moves up.  */
+
+@keyframes flyAway {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(15vw, -60vh) rotate(0);
+    z-index: 1;
+  }
+  100% {
+    transform: translate(0, 0) rotate(0);
+  }
+}
+
+.flying {
+  animation: flyAway 7s ease-in-out forwards;
+}
+
+.gbutterfly {
+  position: absolute;
+  height: 200px;
+  width: 200px;
+  top: 100px;
+  left: 180px;
+  z-index: -1;
+  animation: wingFlap 3s infinite alternate;
+}
+
+.sparklef {
+  position: absolute;
+  height: 110px;
+  width: 110px;
+  bottom: 500px;
+  left: 140px;
+  rotate: -20deg;
+  z-index: -1;
+  animation: starfloat 2s infinite;
+}
+
+.sparklestar {
+  position: absolute;
+  height: 110px;
+  width: 110px;
+  top: 200px;
+  right: 140px;
+  rotate: 20deg;
+  z-index: -1;
+  animation: starfloat 2s infinite;
+}
+
+.starsparkle {
+  position: absolute;
+  height: 110px;
+  width: 110px;
+  bottom: 90px;
+  right: 600px;
+  rotate: -10deg;
+  z-index: -1;
+  animation: starfloat 2s infinite alternate;
+}
+
+.sparklef2 {
+  position: absolute;
+  height: 110px;
+  width: 110px;
+  bottom: 60px;
+  left: 600px;
+  rotate: 20deg;
+  z-index: -1;
+  animation: starfloat 2s infinite;
+}
+
+.starsparkle2 {
+  position: absolute;
+  height: 110px;
+  width: 110px;
+  top: 40px;
+  left: 650px;
+  rotate: 10deg;
+  z-index: -1;
+  animation: starfloat 2s infinite alternate;
+}
+
+@keyframes starfloat {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-4px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}

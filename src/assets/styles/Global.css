@@ -1,0 +1,9 @@
+@font-face {
+  font-family: "Silkflower";
+  src: url(../fonts/silkflower.otf) format("opentype");
+}
+
+@font-face {
+  font-family: "ramidots";
+  src: url(../fonts/ramidots.regular.otf) format("opentype");
+}
