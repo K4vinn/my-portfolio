@@ -4,6 +4,7 @@ import About from "./components/About";
 import Work from "./components/Work";
 import Introduction from "./components/Introduction";
 import Education from "./components/Education";
+import Test from "./components/Test";
 
 import "./assets/styles/Global.css";
 
@@ -13,6 +14,7 @@ function App() {
       <Navbar />
       <Introduction />
       <About />
+      {/* <Test /> */}
       {/* <Education />
       <Work /> */}
     </div>

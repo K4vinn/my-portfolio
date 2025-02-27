@@ -3,12 +3,33 @@ import "../assets/styles/About.css";
 import { TypeAnimation } from "react-type-animation";
 import { SearchOutlined } from "@ant-design/icons";
 import { useInView } from "react-intersection-observer";
+import { motion } from "framer-motion";
+
+//vectors
+import flower from "../assets/images/flowerempty.png";
 
 const About = () => {
   const { ref, inView } = useInView({
     triggerOnce: false, // Trigger the animation only once
     threshold: 0.1, // Trigger when 10% of the section is visible
   });
+
+  const educationData = [
+    {
+      title: "Diploma in Computer Science",
+      institution: "INTI College Penang, MY",
+      year: "2020 - 2022",
+      description: "Graduated with a CGPA of 2.89",
+      description2: "Dean's List of April 2022 (GPA 3.98)",
+    },
+    {
+      title: "Bachelors in Computing with Honors",
+      institution: "Coventry University, UK",
+      year: "2022 - 2024",
+      description: "Graduated with a CGPA of 3.2",
+      description2: "Focused majoring on Software Development",
+    },
+  ];
 
   return (
     <section id="about" className="about-section" ref={ref}>
@@ -33,15 +54,69 @@ const About = () => {
             innovative.
           </p>
           <p> Lets connect! </p>
-          <button className="btn">
+          <button
+            className="btn"
+            onClick={() =>
+              window.open("https://www.linkedin.com/in/kavinash-devakumar/")
+            }
+          >
             <SearchOutlined className="icon" />
             linkedin.com/in/kavinash-devakumar/
           </button>
         </div>
       </div>
-
       {/* Right Side */}
-      <div className="right">Hello</div>
+      <div className="right">
+        <h2 className="education-title"> Education </h2>
+        <div className="timeline-container" ref={ref}>
+          {inView && (
+            <>
+              <motion.div
+                initial={{ height: 0 }}
+                animate={{ height: "80vh" }}
+                transition={{ duration: 1.5, ease: "easeInOut" }}
+                className="timeline-line"
+              >
+                {[0, 1].map((pos, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, scale: 0 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ delay: pos + 0.5, duration: 0.5 }}
+                    className="timeline-dot"
+                    style={{ top: `${pos * 100}%` }}
+                  />
+                ))}
+              </motion.div>
+
+              {educationData.map((data, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: index % 2 === 0 ? -150 : 150 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: index + 1, duration: 1 }}
+                  className={`timeline-box ${
+                    index % 2 === 0 ? "left" : "right"
+                  }`}
+                  style={{
+                    position: "absolute",
+                    display: "flex",
+                    alignItems: "center",
+                  }}
+                >
+                  <div className="timeline-circle">
+                    <h3>{data.title}</h3>
+                    <h2>{data.institution}</h2>
+                    <h4>{data.year}</h4>
+                    <h4>{data.description}</h4>
+                    <h4>{data.description2}</h4>
+                  </div>
+                </motion.div>
+              ))}
+            </>
+          )}
+        </div>
+      </div>
     </section>
   );
 };
