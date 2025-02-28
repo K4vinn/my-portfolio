@@ -172,3 +172,100 @@ p {
   z-index: 1;
   position: relative;
 }
+
+.flowerabout {
+  position: absolute;
+  height: 200px;
+  width: 200px;
+  left: 420px;
+  bottom: -410px;
+  rotate: 0deg;
+  z-index: 0;
+  animation: float 4s ease-in-out infinite;
+
+}
+
+.flowerabout2 {
+  position: absolute;
+  height: 200px;
+  width: 200px;
+  left: 600px;
+  bottom: -880px;
+  rotate: 90deg;
+  z-index: 0;
+}
+
+.timeline-circle h1{
+    font-family: silkflower;
+    text-align: center;
+    text-decoration: underline;
+}
+
+.arrow-g {
+  position: absolute;
+  height: 600px;
+  width: 500px;
+ bottom: -480px;
+  left: 500px;
+  rotate: 10deg;
+}
+
+.sparklefabout {
+  position: absolute;
+  height: 100px;
+  width: 100px;
+  bottom: -620px;
+  right: 80px;
+  rotate: 20deg;
+  animation: float 2s infinite alternate/* Apply floating animation by default */
+
+}
+
+.sparklefabout2 {
+  position: absolute;
+  height: 100px;
+  width: 100px;
+  bottom: -1025px;
+  right: 390px;
+  rotate: -30deg;
+  animation: float 2s infinite alternate/* Apply floating animation by default */
+
+}
+
+.sparklefabout3 {
+  position: absolute;
+  height: 100px;
+  width: 100px;
+  bottom: -270px;
+  right: 750px;
+  rotate: 20deg;
+  animation: float 2s infinite alternate/* Apply floating animation by default */
+
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-2px);
+  }
+
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* background */
+@keyframes sway {
+  0% {
+    transform: rotate(220deg) translateX(0);
+  }
+  50% {
+    transform: rotate(225deg) translateX(10px);
+  }
+  100% {
+    transform: rotate(220deg) translateX(0);
+  }
+}
