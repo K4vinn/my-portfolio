@@ -12,7 +12,7 @@ const Navbar = () => {
       </div>
       <div className="nav-links">
         <a href="#about">
-          <Link to="about" smooth={true} duration={500}>
+          <Link to="about" smooth={true} duration={1000}>
             about
           </Link>
         </a>

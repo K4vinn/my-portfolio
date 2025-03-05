@@ -1,3 +1,4 @@
+/* General Section Styling */
 section {
   background-color: #2c3930;
   font-family: monospace;
@@ -9,21 +10,13 @@ section {
   padding: 20px;
 }
 
+/* Left Side Styling */
 .left {
   flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.right {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-}
-
-.left {
-  background-color: #2c3930; /* Example background color */
+  background-color: #2c3930;
 }
 
 .intro-text {
@@ -33,6 +26,7 @@ section {
   min-width: 300px;
   max-width: 600px;
   font-family: monospace;
+  animation: fadeIn 2s;
 }
 
 .intro-text h1 {
@@ -62,8 +56,8 @@ section {
 p {
   color: #dcd7c9;
   font-size: 1.3rem;
-  width: auto; /* Adjust the width as needed */
-  line-height: 1.5; /* Optional: adjust line height */
+  width: auto;
+  line-height: 1.5;
 }
 
 .btn {
@@ -87,185 +81,51 @@ p {
   margin-right: 10px;
 }
 
+/* Right Side Styling */
 .right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  height: auto;
+  max-width: 50%;
   background-color: #dcd7c9;
   border-radius: 12px;
   box-shadow: rgba(0, 0, 0, 0.2) 4px 4px 10px,
     rgba(0, 0, 0, 0.15) -4px -4px 10px;
 }
 
-.timeline-container {
-  position: relative;
-  height: 80vh;
-  margin-top: 10%;
-  right: 6.2%;
-}
-
-.timeline-line {
+/* Image Carousel Styling */
+.right div {
   position: absolute;
-  left: 0%;
-  transform: translateX(-50%);
-  width: 2px;
-  background-color: #2c3930;
-}
-
-.timeline-dot {
-  position: absolute;
-  right: -4px;
-  width: 10px;
-  height: 10px;
-  background-color: #2c3930;
-  border-radius: 50%;
-}
-
-.timeline-box {
-  width: 300px;
-  height: 400px;
-  padding: 10px;
-  background-color: #2c3930;
-  color: #dcd7c9;
-  border-radius: 12px;
+  width: 430px;
+  height: 820px;
+  border-radius: 15px;
+  box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  transition: transform 0.3s ease-in-out;
   box-shadow: rgba(0, 0, 0, 0.2) 4px 4px 10px,
     rgba(0, 0, 0, 0.15) -4px -4px 10px;
+}
+
+.right img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.right div:hover img {
+  transform: scale(1.05);
+}
+
+/* Drag to Cycle Text */
+.right p {
   position: absolute;
-}
-
-.timeline-box.left {
-  left: calc(15% - 340px); /* Adjust the value based on your design */
-}
-
-.timeline-box.right {
-  left: calc(50% + 20px); /* Adjust the value based on your design */
-  top: 49%;
+  bottom: -30px;
+  font-size: 0.9rem;
+  color: #777;
   text-align: center;
-}
-
-.timeline-box h3 {
-  margin: 0;
-  font-size: 1.5rem;
-}
-
-.timeline-box h4 {
-  margin: 0;
-  font-size: 1.2rem;
-  color: #dcd7c9;
-}
-
-.timeline-box h4 {
-  margin: 0.5rem 0;
-  font-size: 1rem;
-  font-weight: lighter;
-}
-
-.timeline-circle {
-  display: block;
-  margin: 20px;
-  top: 0;
-  text-align: left;
-  margin-top: 10px;
-}
-
-.education-title {
-  font-size: 30px;
-  font-weight: bold;
-  color: #2c3930;
-  z-index: 1;
-  position: relative;
-}
-
-.flowerabout {
-  position: absolute;
-  height: 200px;
-  width: 200px;
-  left: 420px;
-  bottom: -410px;
-  rotate: 0deg;
-  z-index: 0;
-  animation: float 4s ease-in-out infinite;
-
-}
-
-.flowerabout2 {
-  position: absolute;
-  height: 200px;
-  width: 200px;
-  left: 600px;
-  bottom: -880px;
-  rotate: 90deg;
-  z-index: 0;
-}
-
-.timeline-circle h1{
-    font-family: silkflower;
-    text-align: center;
-    text-decoration: underline;
-}
-
-.arrow-g {
-  position: absolute;
-  height: 600px;
-  width: 500px;
- bottom: -480px;
-  left: 500px;
-  rotate: 10deg;
-}
-
-.sparklefabout {
-  position: absolute;
-  height: 100px;
-  width: 100px;
-  bottom: -620px;
-  right: 80px;
-  rotate: 20deg;
-  animation: float 2s infinite alternate/* Apply floating animation by default */
-
-}
-
-.sparklefabout2 {
-  position: absolute;
-  height: 100px;
-  width: 100px;
-  bottom: -1025px;
-  right: 390px;
-  rotate: -30deg;
-  animation: float 2s infinite alternate/* Apply floating animation by default */
-
-}
-
-.sparklefabout3 {
-  position: absolute;
-  height: 100px;
-  width: 100px;
-  bottom: -270px;
-  right: 750px;
-  rotate: 20deg;
-  animation: float 2s infinite alternate/* Apply floating animation by default */
-
-}
-
-@keyframes float {
-  0% {
-    transform: translateY(0);
-  }
-
-  50% {
-    transform: translateY(-2px);
-  }
-
-  100% {
-    transform: translateY(0);
-  }
-}
-
-/* background */
-@keyframes sway {
-  0% {
-    transform: rotate(220deg) translateX(0);
-  }
-  50% {
-    transform: rotate(225deg) translateX(10px);
-  }
-  100% {
-    transform: rotate(220deg) translateX(0);
-  }
 }

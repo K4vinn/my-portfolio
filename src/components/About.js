@@ -1,51 +1,45 @@
-import React from "react";
+import React, { useState } from "react";
 import "../assets/styles/About.css";
 import { TypeAnimation } from "react-type-animation";
 import { SearchOutlined } from "@ant-design/icons";
 import { useInView } from "react-intersection-observer";
 import { motion } from "framer-motion";
 
-//vectors
-import flower from "../assets/images/flowerempty.png";
-import arrow from "../assets/images/arrow.png";
-import gmoth from "../assets/images/green-moth.png";
-import gbutterfly from "../assets/images/light-green-butterly.png";
-import sparklef from "../assets/images/sparkle-for.png";
-import sparklestar from "../assets/images/sparkle-star.png";
-import starsparkle from "../assets/images/star-sparkle.png";
+import test1 from "../assets/images/test1.jpg";
+import test2 from "../assets/images/test2.jpg";
+import test3 from "../assets/images/test3.jpg";
 
 const About = () => {
   const { ref, inView } = useInView({
-    triggerOnce: false, // Trigger the animation only once
-    threshold: 0.1, // Trigger when 10% of the section is visible
+    triggerOnce: false,
+    threshold: 0.1,
   });
 
-  const educationData = [
-    {
-      header: "Diploma",
-      title: "Diploma in Computer Science",
-      institution: "INTI College Penang, MY",
-      year: "2020 - 2022",
-      description: "Graduated with a CGPA of 2.89",
-      description2: "Dean's List of April 2022 (GPA 3.98)",
-    },
-    {
-      header: "Degree",
-      title: "Bachelors in Computing with Honors",
-      institution: "Coventry University, UK",
-      year: "2022 - 2024",
-      description: "Graduated with a CGPA of 3.2",
-      description2: "Focused majoring on Software Development",
-    },
+  const images = [
+    { id: 1, src: test1, alt: "My Family" },
+    { id: 2, src: test2, alt: "A Good Picture" },
+    { id: 3, src: test3, alt: "Loki" },
   ];
 
-  return (
-    
-    <section id="about" className="about-section" ref={ref}>
-            {/* <img src={arrow} className="arrow-g" alt="arrow-green"/> */}
+  const [index, setIndex] = useState(Math.floor(images.length / 2));
 
+  const cycleImages = (dragInfo) => {
+    if (dragInfo.offset.x < -50) {
+      setIndex((prev) => (prev + 1) % images.length);
+    } else if (dragInfo.offset.x > 50) {
+      setIndex((prev) => (prev - 1 + images.length) % images.length);
+    }
+  };
+
+  return (
+    <section id="about" className="about-section" ref={ref}>
       <div className="left">
-        <div className="intro-text">
+        <motion.div
+          className="intro-text"
+          initial={{ opacity: 0, y: 50 }}
+          animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 50 }}
+          transition={{ duration: 1, ease: "easeInOut" }}
+        >
           <h1> Hello, </h1>
           <h2 className="type-animation">
             {inView && (
@@ -58,13 +52,11 @@ const About = () => {
             )}
           </h2>
           <p>
-            I am a Fresh Graduate Software Developer, from Penang, Malaysia,
-            with a knack for unique, arsty and creative designs that stand out
-            and reflect to my personality. I'm a passionate developer to take on
-            a creative challenge all whilst making things beautiful and
-            innovative.
+            From Penang, Malaysia - With a knack for artsy, creative and unique
+            designs that stand out! I love developing and designing things that
+            are beautiful and innovative.
           </p>
-          <p> Lets connect! </p>
+          <p> Psst.. I also love music, sports and film! </p>
           <button
             className="btn"
             onClick={() =>
@@ -74,69 +66,46 @@ const About = () => {
             <SearchOutlined className="icon" />
             linkedin.com/in/kavinash-devakumar/
           </button>
-          <img className="flowerabout" src={gbutterfly} alt="flower"/>
-          {/* <img className="flowerabout2" src={flower} alt="flower"/> */}
-        </div>
+        </motion.div>
       </div>
-      {/* Right Side */}
-      <div className="right">
-        <h2 className="education-title"> Education </h2>
-        <div className="timeline-container" ref={ref}>
-          
-          {inView && (
-            <>
-              <motion.div
-                initial={{ height: 0 }}
-                animate={{ height: "80vh" }}
-                transition={{ duration: 0.8, ease: "easeInOut" }}
-                className="timeline-line"
-              >
-                {[0, 1].map((pos, index) => (
-                  <motion.div
-                    key={index}
-                    initial={{ opacity: 0, scale: 0 }}
-                    animate={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: pos + 0.5, duration: 0.5 }}
-                    className="timeline-dot"
-                    style={{ top: `${pos * 100}%` }}
-                  />
-                ))}
-              </motion.div>
 
-              {educationData.map((data, index) => (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, x: index % 2 === 0 ? -150 : 150 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index + 0.5, duration: 0.5 }}
-                  className={`timeline-box ${
-                    index % 2 === 0 ? "left" : "right"
-                  }`}
-                  style={{
-                    position: "absolute",
-                    display: "flex",
-                    alignItems: "center",
-                  }}
-                >
-                  <div className="timeline-circle">
-                      <h1> {data.header}</h1>
-                    <h3>{data.title}</h3>
-                    <h2>{data.institution}</h2>
-                    <h4>{data.year}</h4>
-                    <h4>{data.description}</h4>
-                    <h4>{data.description2}</h4>
-                  </div>
-                </motion.div>
-              ))}
-            </>
-          )}
-        </div>
-        <img className="sparklefabout" src={sparklef} alt="sparkle"/>
-        <img className="sparklefabout2" src={starsparkle} alt="sparkle"/>
-        <img className="sparklefabout3" src={sparklestar} alt="sparkle"/>
-      </div>
+      {/* Right Side (Image Carousel) */}
+
+      <motion.div
+        className="right relative w-64 h-96 flex items-center justify-center overflow-hidden"
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 50 }}
+        transition={{ duration: 1, ease: "linear" }}
+      >
+        {images.map((image, i) => (
+          <motion.div
+            key={i}
+            className="absolute w-56 h-80 rounded-xl overflow-hidden shadow-lg cursor-grab"
+            drag="x"
+            dragConstraints={{ left: -100, right: 100 }}
+            onDragEnd={(event, info) => cycleImages(info)}
+            animate={{
+              zIndex: index === i ? 10 : images.length - Math.abs(index - i),
+              scale: index === i ? 1 : 0.9,
+              x: (i - index) * 50,
+              opacity: index === i ? 1 : 0.8,
+            }}
+            transition={{
+              x: { type: "spring", stiffness: 500, damping: 10000 },
+              // scale: { duration: 0.15 },
+              opacity: { duration: 0.1 },
+            }}
+          >
+            <img
+              src={image.src}
+              alt={image.alt}
+              className="w-full h-full object-cover"
+              draggable="false"
+            />
+          </motion.div>
+        ))}
+      </motion.div>
     </section>
-    
   );
 };
 

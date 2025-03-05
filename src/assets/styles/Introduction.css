@@ -251,7 +251,7 @@ Negative (-vh) moves up.  */
   right: 600px;
   rotate: -10deg;
   z-index: -1;
-  animation: starfloat 2s infinite alternate;
+  animation: starfloat 2s infinite alternate, spinalter 40s linear infinite;
 }
 
 .sparklef2 {
@@ -273,7 +273,7 @@ Negative (-vh) moves up.  */
   left: 650px;
   rotate: 10deg;
   z-index: -1;
-  animation: starfloat 2s infinite alternate;
+  animation: starfloat 2s infinite alternate, spin 40s linear infinite;
 }
 
 @keyframes starfloat {
@@ -287,5 +287,23 @@ Negative (-vh) moves up.  */
 
   100% {
     transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spinalter {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(-360deg);
   }
 }
