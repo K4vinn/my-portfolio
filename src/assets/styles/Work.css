@@ -1,0 +1,153 @@
+.work-section-main {
+  display: flex;
+  min-height: 100vh;
+  font-family: "silkflower";
+  letter-spacing: 2px;
+  padding: 10px;
+  height: auto;
+  color: white;
+}
+
+.work-section {
+  background-color: #2f3e34;
+  padding: 2rem;
+  border-radius: 10px;
+  color: #e6e1d5;
+}
+
+.project-list {
+  width: 30%;
+  margin-top: 50px;
+  text-align: center;
+}
+
+.project-list h2 {
+  font-size: 4rem;
+  margin-top: 0;
+  text-align: center;
+  font-family: monospace;
+}
+
+.project-item {
+  align-items: end;
+  cursor: pointer;
+  font-size: 2.2rem;
+  padding: 0.5rem 0;
+  transition: all 0.3s ease;
+  margin-bottom: 30px;
+}
+
+.project-item span {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.project-item:hover {
+  color: #c8b6a6;
+}
+
+.project-item.active {
+  text-decoration: underline;
+}
+
+.project-display {
+  width: 65%;
+  height: 830px;
+  background-color: #e6e1d5;
+  padding: 1.5rem;
+  border-radius: 10px;
+  text-align: center;
+  margin-top: 50px;
+  font-family: monospace;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.5s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.project-display img {
+  width: 100%;
+  max-height: 350px;
+  object-fit: cover;
+  border-radius: 10px;
+  opacity: 0;
+  transform: scale(0.95);
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Smooth Fade-in for Images */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.project-display h3 {
+  margin-top: 1.4rem;
+  font-size: 1.8rem;
+  color: #2f3e34;
+}
+
+.project-display p {
+  font-size: 1.25rem;
+  margin: 0.5rem 0;
+  color: #4a4a4a;
+  text-align: left;
+  margin-bottom: 30px;
+}
+
+.keywords {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 0.5rem;
+}
+
+.keyword {
+  display: flex;
+  background-color: #4a4a4a;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  height: 20px;
+  width: 100px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.project-display h3,
+.project-display p,
+.keywords {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeInText 0.3s ease-out forwards;
+}
+
+/* Staggered Fade-in for Text */
+@keyframes fadeInText {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

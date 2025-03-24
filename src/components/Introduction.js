@@ -14,6 +14,7 @@ import gbutterfly from "../assets/images/light-green-butterly.png";
 import sparklef from "../assets/images/sparkle-for.png";
 import sparklestar from "../assets/images/sparkle-star.png";
 import starsparkle from "../assets/images/star-sparkle.png";
+import flowerempty from "../assets/images/flowerempty.png";
 
 const Introduction = () => {
   const [isFlying, setIsFlying] = useState(false);
@@ -37,7 +38,7 @@ const Introduction = () => {
         {inView && (
           <>
             <motion.img
-              src={flower1}
+              src={flowerempty}
               alt="Flower 1"
               className="flower flower-top"
               initial={{ opacity: 0, y: -20 }}
@@ -47,7 +48,7 @@ const Introduction = () => {
 
             {[3].map((i) => (
               <motion.img
-                src={flower2}
+                src={flowerempty}
                 alt="Flower 2"
                 className="flower flower-bottom"
                 initial={{ opacity: 0, y: -20 }}

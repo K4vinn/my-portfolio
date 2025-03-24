@@ -7,8 +7,7 @@
   padding: 1rem;
   position: relative; /* Added for flower positioning */
   z-index: 0;
-  margin-bottom: 145px;
-  /* background-color: #dcd7c9; */
+  height: 100vh;
 }
 
 .box-1 {
@@ -27,11 +26,14 @@
 .flower-top {
   top: -4.5%; /* Adjust position as needed */
   right: 18.5%; /* Moved to the right */
+  animation: sway2 5s ease-in-out infinite;
 }
 
 .flower-bottom {
-  bottom: 2.8%; /* Adjust position as needed */
-  left: 16.65%; /* Moved to the left */
+  bottom: 27%; /* Adjust position as needed */
+  left: 16%; /* Moved to the left */
+  rotate: 180deg;
+  animation: sway2 5s ease-in-out infinite;
 }
 
 /* Floating Text */
@@ -170,7 +172,7 @@
   position: absolute;
   height: 200px;
   width: 200px;
-  bottom: -40px;
+  bottom: 170px;
   right: 90px;
   z-index: -1;
   rotate: -50deg;
@@ -305,5 +307,128 @@ Negative (-vh) moves up.  */
   }
   100% {
     transform: rotate(-360deg);
+  }
+}
+
+/* Responsiveness */
+@media (max-width: 1200px) {
+  .introduction-title,
+  .introduction-shadow {
+    font-size: 96px;
+    letter-spacing: 20px;
+  }
+
+  .box-1 {
+    width: 400px;
+    height: 250px;
+  }
+
+  .gflower,
+  .gflower2,
+  .gmoth,
+  .gbutterfly,
+  .sparklef,
+  .sparklestar,
+  .starsparkle,
+  .sparklef2,
+  .starsparkle2 {
+    height: 0px;
+    width: 0px;
+  }
+}
+
+@media (max-width: 992px) {
+  .introduction-title,
+  .introduction-shadow {
+    font-size: 72px;
+    letter-spacing: 15px;
+  }
+
+  .box-1 {
+    width: 300px;
+    height: 200px;
+  }
+
+  .about-button {
+    width: 180px;
+    height: 45px;
+    font-size: 20px;
+  }
+
+  .gflower,
+  .gflower2,
+  .gmoth,
+  .gbutterfly,
+  .sparklef,
+  .sparklestar,
+  .starsparkle,
+  .sparklef2,
+  .starsparkle2 {
+    height: 0px;
+    width: 0px;
+  }
+}
+
+@media (max-width: 768px) {
+  .introduction-title,
+  .introduction-shadow {
+    font-size: 48px;
+    letter-spacing: 10px;
+  }
+
+  .box-1 {
+    width: 250px;
+    height: 150px;
+  }
+
+  .about-button {
+    width: 160px;
+    height: 40px;
+    font-size: 18px;
+  }
+
+  .gflower,
+  .gflower2,
+  .gmoth,
+  .gbutterfly,
+  .sparklef,
+  .sparklestar,
+  .starsparkle,
+  .sparklef2,
+  .starsparkle2 {
+    height: 0px;
+    width: 0px;
+  }
+}
+
+@media (max-width: 576px) {
+  .introduction-title,
+  .introduction-shadow {
+    font-size: 36px;
+    letter-spacing: 5px;
+  }
+
+  .box-1 {
+    width: 200px;
+    height: 120px;
+  }
+
+  .about-button {
+    width: 140px;
+    height: 35px;
+    font-size: 16px;
+  }
+
+  .gflower,
+  .gflower2,
+  .gmoth,
+  .gbutterfly,
+  .sparklef,
+  .sparklestar,
+  .starsparkle,
+  .sparklef2,
+  .starsparkle2 {
+    height: 0px;
+    width: 0px;
   }
 }

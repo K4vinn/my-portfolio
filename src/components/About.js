@@ -1,15 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../assets/styles/About.css";
 import { TypeAnimation } from "react-type-animation";
 import { SearchOutlined } from "@ant-design/icons";
 import { useInView } from "react-intersection-observer";
 import { motion } from "framer-motion";
+import { Link } from "react-scroll";
 
 import test1 from "../assets/images/test1.jpg";
 import test2 from "../assets/images/test2.jpg";
 import test3 from "../assets/images/test3.jpg";
 
 const About = () => {
+  const text = "To my experiences!";
+  const [letters, setLetters] = useState([]);
   const { ref, inView } = useInView({
     triggerOnce: false,
     threshold: 0.1,
@@ -17,7 +20,7 @@ const About = () => {
 
   const images = [
     { id: 1, src: test1, alt: "My Family" },
-    { id: 2, src: test2, alt: "A Good Picture" },
+    { id: 2, src: test1, alt: "A Good Picture" },
     { id: 3, src: test3, alt: "Loki" },
   ];
 
@@ -30,6 +33,20 @@ const About = () => {
       setIndex((prev) => (prev - 1 + images.length) % images.length);
     }
   };
+
+  useEffect(() => {
+    setLetters(
+      text.split("").map((letter, index) => (
+        <span
+          key={index}
+          className="wave-letter"
+          style={{ animationDelay: `${index * 0.1}s` }}
+        >
+          {letter === " " ? "\u00A0" : letter}
+        </span>
+      ))
+    );
+  }, [text]);
 
   return (
     <section id="about" className="about-section" ref={ref}>
@@ -66,45 +83,23 @@ const About = () => {
             <SearchOutlined className="icon" />
             linkedin.com/in/kavinash-devakumar/
           </button>
+          <Link
+            className="my-exp text-2xl font-bold"
+            to="education"
+            smooth={true}
+            duration={600}
+          >
+            {letters}
+          </Link>
         </motion.div>
       </div>
-
-      {/* Right Side (Image Carousel) */}
-
-      <motion.div
-        className="right relative w-64 h-96 flex items-center justify-center overflow-hidden"
-        initial={{ opacity: 0, y: 50 }}
-        animate={{ opacity: inView ? 1 : 0, y: inView ? 0 : 50 }}
-        transition={{ duration: 1, ease: "linear" }}
-      >
-        {images.map((image, i) => (
-          <motion.div
-            key={i}
-            className="absolute w-56 h-80 rounded-xl overflow-hidden shadow-lg cursor-grab"
-            drag="x"
-            dragConstraints={{ left: -100, right: 100 }}
-            onDragEnd={(event, info) => cycleImages(info)}
-            animate={{
-              zIndex: index === i ? 10 : images.length - Math.abs(index - i),
-              scale: index === i ? 1 : 0.9,
-              x: (i - index) * 50,
-              opacity: index === i ? 1 : 0.8,
-            }}
-            transition={{
-              x: { type: "spring", stiffness: 500, damping: 10000 },
-              // scale: { duration: 0.15 },
-              opacity: { duration: 0.1 },
-            }}
-          >
-            <img
-              src={image.src}
-              alt={image.alt}
-              className="w-full h-full object-cover"
-              draggable="false"
-            />
-          </motion.div>
-        ))}
-      </motion.div>
+      <div className="right">
+        <div className="inner-box-img">
+          <img className="img-b1" src={test1} />
+          <img className="img-b2" src={test2} />
+          <img className="img-b3" src={test3} />
+        </div>
+      </div>
     </section>
   );
 };

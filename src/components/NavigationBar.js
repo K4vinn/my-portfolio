@@ -1,24 +1,24 @@
 import React from "react";
-import logo from "../assets/images/logo.png";
-import "../assets/styles/Navbar.css";
 import { Link } from "react-scroll";
+import "../assets/styles/Navbar.css";
 
 const Navbar = () => {
   return (
     <nav className="nav-bar">
-      <div className="logo">
-        <img src={logo} alt="logo" className="logo-img" />
-        <span className="logo-text">kavi.</span>
-      </div>
+      <div className="logo">kavi.</div>
       <div className="nav-links">
-        <a href="#about">
-          <Link to="about" smooth={true} duration={1000}>
-            about
-          </Link>
-        </a>
-        <a href="#education">education</a>
-        <a href="#work">work</a>
-        <a href="#connect">connect</a>
+        <Link to="about" smooth={true} duration={600}>
+          about
+        </Link>
+        <Link to="education" smooth={true} duration={600}>
+          education
+        </Link>
+        <Link to="work" smooth={true} duration={600}>
+          work
+        </Link>
+        <Link to="connect" smooth={true} duration={600}>
+          connect
+        </Link>
       </div>
     </nav>
   );

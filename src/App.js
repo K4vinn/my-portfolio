@@ -14,9 +14,9 @@ function App() {
       <Navbar />
       <Introduction />
       <About />
+      <Education />
+      <Work />
       {/* <Test /> */}
-      {/* <Education />
-      <Work /> */}
     </div>
   );
 }
